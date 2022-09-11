@@ -68,8 +68,10 @@ public class Restaurant {
 
     public int getTotalOrderValue(List<Item> selectedMenuList) {
         int totalvalue=0;
-        for (Item item : selectedMenuList) {
-            totalvalue+=item.getPrice();
+        if (selectedMenuList!=null && selectedMenuList.size()>0) {
+            for (Item item : selectedMenuList) {
+                totalvalue+=item.getPrice();
+            }
         }
         return totalvalue;
     }

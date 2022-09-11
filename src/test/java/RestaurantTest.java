@@ -66,4 +66,10 @@ class RestaurantTest {
         int total_order_cost = restaurant.getTotalOrderValue(selectedMenuList);
         assertEquals(total_order_cost,388);
     }
+
+    @Test
+    public void when_no_select_item_from_menu_should_return_order_cost_zero() {
+        int total_order_cost = restaurant.getTotalOrderValue(null);
+        assertEquals(total_order_cost,0);
+    }
 }
