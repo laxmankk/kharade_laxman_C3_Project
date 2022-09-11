@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -53,4 +55,15 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    @Test
+    public void when_select_item_from_menu_should_update_order_cost() {
+        List<Item> selectedMenuList = new ArrayList<Item>();
+        Item selectedITem1 = restaurant.getMenu().get(0);
+        Item selectedITem2 = restaurant.getMenu().get(1);
+
+        selectedMenuList.add(selectedITem1);
+        selectedMenuList.add(selectedITem2);
+        int total_order_cost = restaurant.getTotalOrderValue(selectedMenuList);
+   
+    }
 }
