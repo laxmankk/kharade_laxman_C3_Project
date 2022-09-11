@@ -64,6 +64,6 @@ class RestaurantTest {
         selectedMenuList.add(selectedITem1);
         selectedMenuList.add(selectedITem2);
         int total_order_cost = restaurant.getTotalOrderValue(selectedMenuList);
-   
+        assertEquals(total_order_cost,388);
     }
 }
