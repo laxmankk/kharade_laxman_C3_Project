@@ -6,17 +6,21 @@ public class RestaurantService {
     private static List<Restaurant> restaurants = new ArrayList<>();
 
     public Restaurant findRestaurantByName(String restaurantName) throws RestaurantNotFoundException {
-        for (Restaurant restaurant : restaurants) {
-            if (restaurant.getName().equals(restaurantName)) {
-                return restaurant;
-            } else {
-                throw new RestaurantNotFoundException(restaurantName);
+            for (Restaurant restaurant : restaurants) {
+                if (restaurant.getName().equals(restaurantName)) {
+                    return restaurant;
+                }
             }
-        }
         return null;
     }
 
-
+    public Restaurant findResturant(String restaurantName) throws RestaurantNotFoundException {
+        Restaurant restaurant = findRestaurantByName(restaurantName);
+        if( restaurant == null){
+            throw new RestaurantNotFoundException(restaurantName);
+        }
+        return restaurant;
+    }
     public Restaurant addRestaurant(String name, String location, LocalTime openingTime, LocalTime closingTime) {
         Restaurant newRestaurant = new Restaurant(name, location, openingTime, closingTime);
         restaurants.add(newRestaurant);
